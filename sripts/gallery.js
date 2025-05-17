@@ -1,5 +1,6 @@
 "use strict"
 
+
 const images = [
   {
     preview:
@@ -90,7 +91,44 @@ const createImage = ({preview, original, description}) => {
 
     return li;
 };
+const createModal = () => {
+  const modal = basicLightbox.create(
+    '<div class="modal-content"><img src="" alt="" /></div>'
+  )
+  return modal
+}
+const renderModal = (modal, orginal, description) => {
+    const img = modal.element().querySelector("img");
+  img.src = orginal;
+  img.alt = description;
+}
+const showModal = (modal) => {
+  modal.show();
+  const escDown = (event) => {
+    if (event.key === "Escape") {
+      modal.close();
+      document.removeEventListener("keydown", escDown );
+    }
+  };
+  document.addEventListener("keydown", escDown)
+};
+
+container.addEventListener("click", (event) => {
+  event.preventDefault()
+  const parent = event.target.parentNode
+ 
+  if (parent.tagName === "A") {
+    const orginal = parent.href;
+    const description = event.target.alt
+    console.log(parent.href)
+    const modal = createModal();
+    renderModal(modal, orginal, description);
+    showModal(modal);
+  }
+})
+
 
 document.addEventListener("DOMContentLoaded", () => {
   createGallery(images);
 });
+
