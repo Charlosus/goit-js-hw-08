@@ -42,5 +42,5 @@ body {
 
 .zoom-on-hover:hover {
   transform: scale(1.04);
-  cursor: pointer;
+   cursor: url('../bxs_hand-down.svg') 10 10, pointer;
 }
