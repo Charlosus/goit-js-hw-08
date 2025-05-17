@@ -81,7 +81,8 @@ const createImage = ({preview, original, description}) => {
     link.href = original;
 
     const img = document.createElement("img");
-    img.classList.add("gallery-image");
+
+    img.classList.add("gallery-image", "zoom-on-hover");
     img.src = preview;
     img.dataset.source = original;
     img.alt = description

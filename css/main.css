@@ -36,3 +36,11 @@ body {
   object-fit: cover;
   display: block;
 }
+.zoom-on-hover {
+  transition: transform 0.3s ease-out;
+}
+
+.zoom-on-hover:hover {
+  transform: scale(1.04);
+  cursor: pointer;
+}
